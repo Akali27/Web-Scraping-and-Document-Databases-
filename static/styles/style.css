@@ -1,0 +1,51 @@
+ table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+img{
+	max-width:100%;
+	height:auto;
+}
+.current_box{
+	border:1px solid #efefef;
+	padding:20px;
+}
+.current_box p{
+	padding:0px;
+	margin:0px;
+}
+.box-row{
+	width:80%;
+	margin:0px auto;
+}
+.box-row .box-item{
+	padding:10px;
+}
+.box-row img{
+	width:100%;
+	height:auto;
+}
+.box-row h5{
+	padding:10px 5px;
+	clear:both;
+}
+/*.box-row .box-item:nth-child(2n+1){
+	margin-left:5px;
+}
+.box-row .box-item:nth-child(2n) img{
+	margin-right:5px;
+}*/
+.box-item .box-item-inner{
+	border:1px solid #efefef;
+
+}
+.spacing-60{
+	width:100%;
+	dispaly:inline-block;
+	height:60px;
+}
+.spacing-30{
+	width:100%;
+	dispaly:inline-block;
+	height:30px;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/bootstrap.css') }}">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  <title>Mars Data Scraper</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+    
+</head>
+<html>
+	<body>
+    <div class="container-fluid">
+      <h1 style="text-align:center;background-color: lightgray;padding: 80px">Mision to Mars <br>
+			<button type="button" id="scrape" class="btn btn-primary"><b>Scrape New Data<b></button>
+      </h1>
+		 
+		<div>
+			<h3 >Latest Mars News</h3>
+			<h5 >{{news_title}}</h5> 
+			<p style="font-size:12px" >{{news_p}}</p>
+			<hr>
+		</div>
+
+    <div class="row">
+      <div class="col-sm-8">
+            <div class="mx-0">
+              <h3>Featured Mars Image</h3>
+              <img src={{feature_img_url}}  alt="Featured Mars Image" style="float:left;">
+            </div>
+        
+      </div>
+
+      <div class="col-lg-4">
+            <div class="mx-0 current_box">
+              <h3>Current Weather on Mars</h3>
+              <p  style="font-size:14px" class="text-center" >{{mars_weather}}</p>
+            </div class="mx-0">
+            <div class='spacing-30'></div>
+            <div>
+              <h3>Mars Facts</h3>
+              <div id="mars_facts">{{mars_facts|safe}}
+              </div>
+            </div>
+        
+      </div>
+    </div>
+    <div class='spacing-60'></div>
+    <div>
+      <h4 style="text-align: center;">Mars Hemispheres</h4>
+      <hr>
+        
+    </div>
+
+    <div class="row box-row">
+        <div class="col-sm-6 box-item">
+          <div class='box-item-inner'>
+        
+          <img src={{url_0}} alt="Astrogeology Science Center">
+          <h5>{{title_0}}</h5>
+        </div>
+        </div>
+
+        <div class="col-sm-6 box-item">
+          <div class='box-item-inner'>
+        
+          <img src={{url_1}} alt="Astrogeology Science Center">
+          <h5>{{title_1}}</h5>
+        </div>
+        </div>
+      
+		</div>
+    <div class="row box-row">
+      <div class="col-sm-6 box-item">
+        <div class='box-item-inner'>
+        <img src={{url_2}} alt="Astrogeology Science Center">
+        <h5>{{title_2}}</h5>
+      </div>
+      </div>
+      <div class="col-sm-6 box-item">
+        <div class='box-item-inner'>
+        <img src={{url_3}} alt="Astrogeology Science Center">
+        <h5>{{title_3}}</h5>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{url_for('static', filename='scripts/jquery.js') }}">\x3C/script>')</script>
+    <script>window.jQuery || document.write('<script src="{{url_for('static', filename='scripts/bootstrap.min.js') }}">\x3C/script>')</script>
+    <script>window.jQuery || document.write('<script src="{{url_for('static', filename='scripts/popper.min.js') }}">\x3C/script>')</script>
+
+
+    <script type=text/javascript>
+      $(function() {
+        var i=0
+        $('button#scrape').bind('click', function() {
+          $.ajax('/scrape').done(function(msg) {
+          alert("New Data Scraped: "+msg);
+          })
+        })
+      });
+    </script>
+
+	</body>
+</html> 
